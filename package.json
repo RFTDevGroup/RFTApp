@@ -1,0 +1,19 @@
+{
+  "name": "transporthub",
+  "version": "1.0.0",
+  "description": "Application made for RFT course",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RFTDevGroup/RFTApp.git"
+  },
+  "author": "Norbert Babély",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RFTDevGroup/RFTApp/issues"
+  },
+  "homepage": "https://github.com/RFTDevGroup/RFTApp#readme"
+}
