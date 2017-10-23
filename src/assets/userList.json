@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "firstName": "User",
+        "lastName": "First",
+        "roles": {
+            "id": 1,
+            "name": "Admin"
+        }
+    },
+
+    {
+        "id": 2,
+        "firstName": "User",
+        "lastName": "Second",
+        "roles": {
+            "id": 2,
+            "name": "User"
+        }
+    }
+]
