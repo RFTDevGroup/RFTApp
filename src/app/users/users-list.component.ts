@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+
 import { IUsers } from "./users";
 import { UsersService } from "./users.service";
 
 @Component({
-  selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit {
   pageTitle: string = 'User List';
   errorMessage: string;
-  _listFilter: string;
 
+  _listFilter: string;
   get listFilter(): string {
-    return this._listFilter;
+    return this._listFilter
   }
   set listFilter(value: string) {
     this._listFilter = value;
-    this.filteredUsers = this.listFilter ? this.performFilter(this.listFilter) : this.users;
+    this.filteredUsers = this.listFilter ? 
+      this.performFilter(this.listFilter) : this.users;
   }
 
   filteredUsers: IUsers[];

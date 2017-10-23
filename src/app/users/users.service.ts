@@ -9,7 +9,8 @@ import { IUsers } from "./users";
 
 @Injectable()
 export class UsersService {
-    private _usersUrl = 'localhost:4200/api/users';
+    //private _usersUrl = 'localhost:8080/transporthub/api/users';
+    private _usersUrl = './assets/userList.json';
 
     constructor(private _http: HttpClient){ }
 

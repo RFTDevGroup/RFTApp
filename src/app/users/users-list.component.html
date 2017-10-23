@@ -4,12 +4,19 @@
   </div>
   <div class='panel-body'>
     <div class='row'>
+      <div class='col-md-2'>Filter by:</div>
       <div class='col-md-4'>
-        <input type='text' [(ngModel)] = 'listFilter' />
+        <input type='text' [(ngModel)]='listFilter'/>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-6'>
+        <h3>Filtered by: {{listFilter}}</h3>
       </div>
     </div>
     <div class='table-responsive'>
-      <table class='table' *ngIf='users && users.length'>
+      <table class='table'
+       *ngIf='users && users.length'>
         <thead>
           <tr>
             <th>User Id</th>
@@ -18,10 +25,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor='let users of filteredUsers'>
-            <td>{{users.id}}</td>
-            <td>{{users.firstName}}</td>
-            <td>{{users.lastName}}</td>
+          <tr *ngFor='let user of users'>
+            <td>{{user.id}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.roles.id}}</td>
+            <td>{{user.roles.name}}</td>
           </tr>
         </tbody>
       </table>
