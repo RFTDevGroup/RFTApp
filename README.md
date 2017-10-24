@@ -7,7 +7,6 @@ Clone the repository, navigate to your working directory (the application's root
 npm install
 ```
 npm install --save bootstrap jquery
-```
 
 # Run
 You can start the application by typing the following command in your command prompt:
