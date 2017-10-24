@@ -29,7 +29,7 @@ export class UsersListComponent implements OnInit {
   performFilter(filterBy: string): IUsers[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.users.filter((
-      users: IUsers) => users.firstName.toLocaleLowerCase().indexOf(filterBy) != -1);
+      users: IUsers) => users.lastName.toLocaleLowerCase().indexOf(filterBy) != -1);
   }
 
   ngOnInit(): void {
