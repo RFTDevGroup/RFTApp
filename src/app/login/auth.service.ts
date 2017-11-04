@@ -34,7 +34,6 @@ export class AuthService {
         .do(resp => {
             if(resp) {
                 this.currentUser = <any>resp.json().user;
-                console.log(resp)
             }
         }).catch(error => {
             return Observable.of(false);
