@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { UsersListComponent } from './users-list.component';
 import { RouterModule } from '@angular/router';
 import { UsersService } from "./users.service";
-import { FormsModule } from '@angular/forms'
-import { CommonModule } from '@angular/common'
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [
@@ -11,10 +11,10 @@ import { CommonModule } from '@angular/common'
       { path: 'users', component: UsersListComponent}
     ]),
     FormsModule,
-    CommonModule
+    CommonModule,
   ],
   declarations: [
-    UsersListComponent
+    UsersListComponent,
   ],
   providers: [
     UsersService

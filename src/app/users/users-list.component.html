@@ -22,10 +22,12 @@
             <th>User Id</th>
             <th>First name</th>
             <th>Last name</th>
+            <th>Role Id</th>
+            <th>Role name</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor='let user of users'>
+          <tr *ngFor='let user of filteredUsers'>
             <td>{{user.id}}</td>
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>
