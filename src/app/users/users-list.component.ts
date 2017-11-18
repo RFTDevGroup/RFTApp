@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { IUsers } from "./users";
 import { UsersService } from "./users.service";
-import { AuthService } from '../login/auth.service'
+import { AuthService } from '../login/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './users-list.component.html',
@@ -19,7 +20,8 @@ export class UsersListComponent implements OnInit {
 
   constructor(
     private _usersService: UsersService,
-    private _authService: AuthService) { }
+    private _authService: AuthService,
+    private _router: Router) { }
 
   _listFilter: string;
     get listFilter(): string {
@@ -35,6 +37,11 @@ export class UsersListComponent implements OnInit {
     filterBy = filterBy.toLocaleLowerCase();
     return this.users.filter((
       users: IUsers) => users.lastName.toLocaleLowerCase().indexOf(filterBy) != -1);
+  }
+
+  logout() {
+    this._authService.logout();
+    this._router.navigate(['login']);
   }
 
   ngOnInit(): void {
