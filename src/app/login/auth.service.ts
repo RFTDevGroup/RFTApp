@@ -7,11 +7,19 @@ import * as $ from 'jquery'
 @Injectable()
 export class AuthService {
     currentUser: any
-    username;
-    password;
+    private username;
+    private password;
 
     constructor(private _http: Http){
 
+    }
+
+    getUsername() {
+        return this.username;
+    }
+
+    getPassword() {
+        return this.password;
     }
 
     loginUser(username: string,
@@ -38,17 +46,7 @@ export class AuthService {
         }).catch(error => {
             return Observable.of(false);
         }) 
-/*         $.ajax({
-            url: 'http://localhost:8080/transporthub/api/login',
-            type: 'get',
-            headers: {
-                'authorization': 'Basic ' + btoa(username + ':' + password)
-            }
-        }).done(data => {
-            console.log(data);
-        })
 
-        return Observable.of(false) */
     }
 
     isAuthenticated(){

@@ -20,19 +20,23 @@
         <thead>
           <tr>
             <th>User Id</th>
+            <th>Username</th>
             <th>First name</th>
             <th>Last name</th>
-            <th>Role Id</th>
-            <th>Role name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Role</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor='let user of filteredUsers'>
             <td>{{user.id}}</td>
+            <td>{{user.userName</td>
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>
-            <td>{{user.roles.id}}</td>
-            <td>{{user.roles.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.address}}</td>
+            <td>{{user.role}}</td>
           </tr>
         </tbody>
       </table>

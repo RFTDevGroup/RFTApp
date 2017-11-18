@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { IUsers } from "./users";
 import { UsersService } from "./users.service";
+import { AuthService } from '../login/auth.service'
 
 @Component({
   templateUrl: './users-list.component.html',
@@ -11,20 +12,24 @@ export class UsersListComponent implements OnInit {
   pageTitle: string = 'User List';
   errorMessage: string;
 
-  _listFilter: string;
-  get listFilter(): string {
-    return this._listFilter
-  }
-  set listFilter(value: string) {
-    this._listFilter = value;
-    this.filteredUsers = this.listFilter ? 
-      this.performFilter(this.listFilter) : this.users;
-  }
+  
 
   filteredUsers: IUsers[];
   users: IUsers[] = [];
 
-  constructor(private _usersService: UsersService) { }
+  constructor(
+    private _usersService: UsersService,
+    private _authService: AuthService) { }
+
+  _listFilter: string;
+    get listFilter(): string {
+      return this._listFilter
+  }
+  set listFilter(value: string) {
+      this._listFilter = value;
+      this.filteredUsers = this.listFilter ? 
+        this.performFilter(this.listFilter) : this.users;
+  }
 
   performFilter(filterBy: string): IUsers[] {
     filterBy = filterBy.toLocaleLowerCase();
@@ -35,7 +40,7 @@ export class UsersListComponent implements OnInit {
   ngOnInit(): void {
     this._usersService.getUsers()
       .subscribe(users => {
-        this.users = users;
+        this.users.push(users);
         this.filteredUsers = this.users;
       },
       error => this.errorMessage = <any>error);

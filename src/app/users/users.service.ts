@@ -12,16 +12,15 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http'
 @Injectable()
 export class UsersService {
     private _usersUrl = 'http://localhost:8080/transporthub/api/users';
-    //private _usersUrl = './assets/userList.json';
 
     constructor(
         private _http: Http,
         private _authService: AuthService){ }
 
-    getUsers(): Observable<any> {
+    getUsers(): Observable<IUsers> {
 
         let headers =  new Headers({
-            'Authorization': 'Basic ' + btoa(this._authService.username+ ':' +this._authService.password)
+            'Authorization': 'Basic ' + btoa(this._authService.getUsername() + ':' + this._authService.getPassword())
         });
         let options = new RequestOptions({
             headers: headers
@@ -32,9 +31,8 @@ export class UsersService {
             .catch(this.handleError);
     }
 
-    getUser(id: number): Observable<any> {
-        return this.getUsers()
-            .map((users: any[]) => users.find(p => p.id === id));
+    getUser(id: number): Observable<IUsers> {
+        return this.getUsers().find(user => user.id === id);
     }
 
     private handleError(err: HttpErrorResponse){

@@ -20,6 +20,9 @@
     <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
     </span>
   </form>
+  <div>
+    <a>create user</a><!-- username, email, password -->
+  </div>
   <br>
   <div *ngIf="loginInvalid" class="alert alert-danger">Invalid Login Info!</div>
 </div>
