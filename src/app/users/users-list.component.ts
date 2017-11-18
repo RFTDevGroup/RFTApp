@@ -40,10 +40,12 @@ export class UsersListComponent implements OnInit {
   ngOnInit(): void {
     this._usersService.getUsers()
       .subscribe(users => {
-        this.users.push(users);
+        this.users = users;
         this.filteredUsers = this.users;
       },
       error => this.errorMessage = <any>error);
+      console.log(this.users);
+
   }
 
 }

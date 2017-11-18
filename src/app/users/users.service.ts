@@ -11,13 +11,12 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http'
 
 @Injectable()
 export class UsersService {
-    private _usersUrl = 'http://localhost:8080/transporthub/api/users';
 
     constructor(
         private _http: Http,
         private _authService: AuthService){ }
 
-    getUsers(): Observable<IUsers> {
+    getUsers(): Observable<IUsers[]> {
 
         let headers =  new Headers({
             'Authorization': 'Basic ' + btoa(this._authService.getUsername() + ':' + this._authService.getPassword())
@@ -26,13 +25,17 @@ export class UsersService {
             headers: headers
         });
 
-        return this._http.get(this._usersUrl, options)
-            .do(data => console.log('All: ' + JSON.stringify(data)))
+        let body;
+
+        return this._http.get('http://localhost:8080/transporthub/api/users', options)
+            .map(this.extractData)
             .catch(this.handleError);
     }
 
-    getUser(id: number): Observable<IUsers> {
-        return this.getUsers().find(user => user.id === id);
+    private extractData(res: Response) {
+        let body = res.json();
+        console.log(body);
+        return body || [];
     }
 
     private handleError(err: HttpErrorResponse){
