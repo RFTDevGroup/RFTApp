@@ -17,12 +17,10 @@
     </div>
         
     <span (mouseenter)="mouseoverLogin = true" (mouseleave)="mouseoverLogin = false">
-    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
+    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Belépés</button>
     </span>
+    <button class="btn btn-primary" (click)="userCreatePage()">Regisztráció</button>
   </form>
-  <div>
-    <a>create user</a><!-- username, email, password -->
-  </div>
   <br>
-  <div *ngIf="loginInvalid" class="alert alert-danger">Invalid Login Info!</div>
+  <div *ngIf="loginInvalid" class="alert alert-danger">{{errorMessage}}</div>
 </div>

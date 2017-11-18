@@ -9,12 +9,17 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginInvalid = false;
+  errorMessage: string = "Hibás felhasználónév vagy jelszó!";
 
   constructor(
     private _authService: AuthService,
     private _router: Router) { }
 
   ngOnInit() {
+  }
+
+  createUserPage() {
+    this._router.navigate(['create'])
   }
 
   login(formValues) {

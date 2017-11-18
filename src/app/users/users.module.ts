@@ -12,7 +12,8 @@ import { UserDetailsComponent } from './userDetails.component';
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: 'users', component: UsersListComponent}
+      { path: 'users', component: UsersListComponent },
+      { path: 'create', component: UserCreateComponent }
     ]),
     FormsModule,
     CommonModule,
