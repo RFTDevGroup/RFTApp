@@ -4,6 +4,10 @@ import { RouterModule } from '@angular/router';
 import { UsersService } from "./users.service";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../login/auth.service';
+import { UserCreateComponent } from './userCreate.component';
+import { UserDetailsComponent } from './userDetails.component';
+
 
 @NgModule({
   imports: [
@@ -15,9 +19,12 @@ import { CommonModule } from '@angular/common';
   ],
   declarations: [
     UsersListComponent,
+    UserCreateComponent,
+    UserDetailsComponent
   ],
   providers: [
-    UsersService
+    UsersService,
+    AuthService
   ]
 })
 export class UsersModule { }

@@ -1,11 +1,9 @@
 export interface IUsers {
     id: number;
+    userName: string;
     firstName: string;
     lastName: string;
-    roles: IRoles;
-}
-
-export interface IRoles {
-    id: number;
-    name: string;
+    email: string;
+    address: string;
+    roles: string[];
 }
