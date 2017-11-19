@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Http, Response, Headers, RequestOptions } from '@angular/http'
 import { Observable } from 'rxjs/Rx'
-import { ILogin, ILoginUser } from './login.model';
 import { LocalStorageService } from 'angular-2-local-storage';
 
 

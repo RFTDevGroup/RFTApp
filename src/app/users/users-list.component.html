@@ -24,6 +24,8 @@
             <th>Last name</th>
             <th>Email</th>
             <th>Address</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -33,10 +35,16 @@
             <td>{{user.lastName}}</td>
             <td>{{user.email}}</td>
             <td>{{user.address}}</td>
+            <td>
+                <button class="btn btn-primary">Szerkeszt</button>
+            </td>
+            <td>
+                <button class="btn btn-primary" (click)="deleteUser(user.id)">Törlés</button>
+            </td>
           </tr>
         </tbody>
       </table>
-      <button (click)="logout()">Logout</button>
+      <button class="btn btn-primary"(click)="logout()">Logout</button>
     </div>
   </div>
 </div>

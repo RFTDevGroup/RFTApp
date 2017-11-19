@@ -8,6 +8,8 @@ import 'rxjs/add/operator/map';
 import { IUsers } from "./users";
 import { AuthService } from '../login/auth.service';
 import { Http, Response, Headers, RequestOptions } from '@angular/http'
+import { IRegisterModel } from './register.model';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class UsersService {
@@ -25,12 +27,38 @@ export class UsersService {
             headers: headers
         });
 
-        let body;
-
-        return this._http.get('http://localhost:8080/transporthub/api/users', options)
+        return this._http.get(environment.baseAddress + '/api/users', options)
             .map(this.extractData)
             .catch(this.handleError);
     }
+
+    createUser(newUser) {
+        console.log(newUser)
+        let headers = new Headers({
+            'Content-Type': 'application/json'
+        });
+        let options = new RequestOptions({
+            headers: headers
+        });
+
+        return this._http.post(environment.baseAddress + '/api/register', newUser, options)
+            .map((resp: Response) => { return resp.json() })
+            .catch(this.handleError);
+    }
+
+    deleteUser(id: number) {
+        let headers =  new Headers({
+            'Authorization': 'Basic ' + btoa(this._authService.getUsername() + ':' + this._authService.getPassword())
+        });
+        let options = new RequestOptions({
+            headers: headers
+        });
+
+        return this._http.delete(environment.baseAddress + '/api/user/' + id, options)
+            .map((resp: Response) => { return resp.json() })
+            .catch(this.handleError);
+    }
+
 
     private extractData(res: Response) {
         let body = res.json();

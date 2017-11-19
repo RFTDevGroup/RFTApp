@@ -16,9 +16,10 @@ export class LoginComponent implements OnInit {
     private _router: Router) { }
 
   ngOnInit() {
+    
   }
 
-  createUserPage() {
+  userCreatePage() {
     this._router.navigate(['create'])
   }
 

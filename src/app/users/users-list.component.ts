@@ -55,4 +55,15 @@ export class UsersListComponent implements OnInit {
 
   }
 
+  deleteUser (id: number){
+    this._usersService.deleteUser(id)
+      .subscribe(resp => {
+        if (!resp) {
+          console.log('Sikertelen törlés');
+        } else {
+          console.log('Sikeres törlés!');
+        }
+      })
+  }
+
 }

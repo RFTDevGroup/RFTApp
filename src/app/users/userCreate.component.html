@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Regisztráció</h2>
+    </div>
+    <div class="col-md-4">
+        <form #registerForm="ngForm" (ngSubmit)="registerUser(registerForm.value)"
+        autocomplete="off" novalidate>
+            <div class="form-group">
+                <label for="userName">Felhasználónév: </label>
+                <input type="text" (ngModel)="userName" name="userName" id="userName" class="form-control" placeholder="Felhasználónév">
+            </div>
+            <div class="form-group">
+                <label for="email">Email cím: </label>
+                Email cím: <input type="text" (ngModel)="email" name="email" id="email" class="form-control" placeholder="Email cím">                   
+            </div>
+            <div class="form-group">
+                <label for="password">Jelszó: </label>
+                <input type="password" (ngModel)="password" name="password" id="password" class="form-control" placeholder="jelszó">
+            </div>
+            <button type="submit" class="btn btn-primary">Regisztrálok</button>
+        </form>
+        <div>
+            <button class="btn btn-primary" (click)="!cancelRegistration()">Mégse</button>
+        </div>  
+        <div *ngIf="registerInvalid" class="alert alert-danger">{{errorMessage}}</div>
+    </div>
+</div>
