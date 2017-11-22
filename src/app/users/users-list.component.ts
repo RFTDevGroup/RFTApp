@@ -39,11 +39,6 @@ export class UsersListComponent implements OnInit {
       users: IUsers) => users.lastName.toLocaleLowerCase().indexOf(filterBy) != -1);
   }
 
-  logout() {
-    this._authService.logout();
-    this._router.navigate(['login']);
-  }
-
   ngOnInit(): void {
     this._usersService.getUsers()
       .subscribe(users => {

@@ -58,7 +58,11 @@ export class AuthService {
     }
 
     isAuthenticated(){
-        return !!this.currentUser;
+        if (localStorage.getItem("userName") == null 
+            || localStorage.getItem("password") == null) {
+                return false;
+        }
+        return true;
     }
 
     //TODO
