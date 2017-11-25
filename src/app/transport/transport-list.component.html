@@ -1,0 +1,48 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-6'>
+                <a>Create Transport</a>
+            </div>
+        </div>
+        <div class='table-responsive'>
+            <table class='table'
+                *ngIf='transports && transports.length'>
+                <thead>
+                    <tr>
+                        <th>Cargo Name</th>
+                        <th>Start</th>
+                        <th>Destination</th>
+                        <th>Days remaining</th>
+                        <th>Owner</th>
+                        <th>Price</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let transport of transports'>
+                        <td>{{transport.cargoName}}</td>
+                        <td>{{transport.cityFrom}}</td>
+                        <td>{{transport.cityTo}}</td>
+                        <td>{{transport.daysRemaining}}</td>
+                        <td>{{transport.owner}}</td>
+                        <td>{{transport.currentPrice}}</td>
+                        <td>
+                            <button class="btn btn-primary">Szerkeszt</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary">Törlés</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div *ngIf='errorMessage' class='alert alert-danger'>
+    Error: {{ errorMessage }}
+  </div>

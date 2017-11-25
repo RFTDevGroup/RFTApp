@@ -7,3 +7,12 @@ export interface IUsers {
     address: string;
     roles: string[];
 }
+
+export interface IAddress {
+    id: number, 
+    country: string,
+    zipcode: string,
+    city: string,
+    street: string,
+    houseNo: string
+}

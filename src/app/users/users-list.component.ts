@@ -20,8 +20,7 @@ export class UsersListComponent implements OnInit {
 
   constructor(
     private _usersService: UsersService,
-    private _authService: AuthService,
-    private _router: Router) { }
+    private _authService: AuthService) { }
 
   _listFilter: string;
     get listFilter(): string {
