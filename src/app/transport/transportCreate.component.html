@@ -1,0 +1,59 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Új szállítmány</h2>
+    </div>
+    
+        <div class="panel-body">
+            <form [formGroup]="transportCreateForm" (submit)="createTransport()">
+
+                <div class="container-create">
+                    <label class="main-label">Szállítmány adatok</label>
+                    <div class="form-group">
+                        <label for="name">Szállítmány neve</label>
+                        <input class="form-control form-part" formControlName="name">
+                    </div>
+
+                    <div class="form-group form-parts">
+                        <label for="weight">Szállítmány súlya</label>
+                        <input class="form-control" formControlName="weight" placeholder="kg">
+
+                        <label for="width">Szállítmány szélessége</label>
+                        <input class="form-control" formControlName="width" placeholder="cm">
+                    </div>
+                    <div class="form-group form-parts">
+                        <label for="height">Szállítmány hossza</label>
+                        <input class="form-control" formControlName="height" placeholder="cm">
+
+                        <label for="depth">Szállítmány magassága</label>
+                        <input class="form-control" formControlName="depth" placeholder="cm">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Leírás</label>
+                        <textarea class="form-control" formControlName="description"></textarea>
+                    </div>
+                </div>
+                <div class="container-create">
+                    <label class="main-label">Címzési adatok</label>
+                    <div class="form-group form-part">
+                        <label for="FromCountry">Ország</label>
+                        <input class="form-control" formControlName="FromCountry">
+                    </div>
+                    <div class="form-group form-parts">
+                        <label for="FromZipcode">Irányítószám</label>
+                        <input class="form-control" formControlName="FromZipcode">
+
+                        <label for="FromCity">Város</label>
+                        <input class="form-control" formControlName="FromCity">
+                    </div>
+                    <div class="form-group form-parts">
+                        <label for="FromStreet">Utca</label>
+                        <input class="form-control" formControlName="FromStreet">
+
+                        <label for="FromNumber">Házszám</label>
+                        <input class="form-control" formControlName="FromNumber">
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>

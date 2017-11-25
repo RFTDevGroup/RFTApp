@@ -46,7 +46,7 @@ export class AuthService {
         localStorage.setItem("userName", this.username);
         localStorage.setItem("password", this.password);
 
-        return this._http.get('http://localhost:8080/transporthub/api/login', options)
+        return this._http.get('http://localhost:8080/transporthub/api/login/', options)
         .do(resp => {
             if(resp) {
                 localStorage.setItem("authority", JSON.stringify(resp));

@@ -39,13 +39,16 @@ export class UsersListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._usersService.getUsers()
-      .subscribe(users => {
-        this.users = users;
-        this.filteredUsers = this.users;
-      },
-      error => this.errorMessage = <any>error);
+    this.getUsers()
+  }
 
+  getUsers() {
+    this._usersService.getUsers()
+    .subscribe(users => {
+      this.users = users;
+      this.filteredUsers = this.users;
+    },
+    error => this.errorMessage = <any>error);
   }
 
   deleteUser (id: number){
@@ -54,7 +57,7 @@ export class UsersListComponent implements OnInit {
         if (!resp) {
           console.log('Sikertelen törlés');
         } else {
-          console.log('Sikeres törlés!');
+          this.getUsers();
         }
       })
   }

@@ -36,6 +36,32 @@ export class TransportService {
             .catch(this.handleError);
     }
 
+    createTransport(transport: ITransport) {
+        let headers =  new Headers({
+            'Authorization': 'Basic ' + btoa(this._authService.getUsername() + ':' + this._authService.getPassword())
+        });
+        let options = new RequestOptions({
+            headers: headers
+        });
+
+        return this._http.post(environment.baseAddress + '/api/transport/new', transport, options)
+            .map((response: Response) => { return response.json() })
+            .catch(this.handleError);
+    }
+
+    deleteTransport(id: number) {
+        let headers =  new Headers({
+            'Authorization': 'Basic ' + btoa(this._authService.getUsername() + ':' + this._authService.getPassword())
+        });
+        let options = new RequestOptions({
+            headers: headers
+        });
+
+        return this._http.delete(environment.baseAddress + '/api/transport/' + id, options)
+            .map((response: Response) => { return response.json()})
+            .catch(this.handleError);
+    }
+
     private extractData(res: Response) {
         let body = res.json();
         return body || [];

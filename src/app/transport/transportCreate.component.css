@@ -1,0 +1,30 @@
+.panel-primary {
+    width: 80%;
+    margin: auto;
+}
+
+.form-parts {
+    float: left;
+    width: 40%;
+    margin: 20px;
+}
+
+.form-part {
+    width: 80%
+}
+
+.main-label {
+    font-size: 20pt;
+    padding: 10px;
+}
+
+.container-create {
+    float: left;
+    width: 55%
+}
+
+textarea {
+    resize: none;
+    width: 90%;
+    height: 140px;
+}

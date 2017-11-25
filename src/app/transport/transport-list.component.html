@@ -5,7 +5,7 @@
     <div class='panel-body'>
         <div class='row'>
             <div class='col-md-6'>
-                <a>Create Transport</a>
+                <a [routerLink]="['create']" >Create Transport</a>
             </div>
         </div>
         <div class='table-responsive'>
@@ -35,7 +35,7 @@
                             <button class="btn btn-primary">Szerkeszt</button>
                         </td>
                         <td>
-                            <button class="btn btn-primary">Törlés</button>
+                            <button class="btn btn-primary" (click)="deleteTransport(transport.id)">Törlés</button>
                         </td>
                     </tr>
                 </tbody>

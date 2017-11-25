@@ -25,10 +25,17 @@ export class TransportListComponent implements OnInit{
     listTransports() {
         this._transportService.getTransports(this.listPageNumber)
         .subscribe(response => {
-            console.log(response)
             this.transports = response.content;
-            console.log(this.transports)
-        })
+        },
+        error => { console.log('Lista sikertelen megjelenítése')});
+    }
+
+    deleteTransport(id: number) {
+        this._transportService.deleteTransport(id)
+            .subscribe(response => {
+                this.listTransports();
+            },
+            error => { console.log('Sikertelen törlés')});
     }
 
 

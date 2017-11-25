@@ -20,3 +20,29 @@ export interface ITransportResponse {
     sort: any,
     numberOfElements: any
 }
+
+export interface ItransportCreate {
+    cargo: ICargo,
+    placeOfLoad: IAddress,
+    placeOfUnload: IAddress,
+    timeOfLoad: Date,
+    timeOfUnload: Date,
+    startingPrice: number
+}
+
+export interface IAddress {
+    country: string,
+    zipcode: string,
+    city: string,
+    street: string,
+    houseNo: string
+}
+
+export interface ICargo {
+    name: string,
+    description: string,
+    weight: string,
+    width: number,
+    height: string,
+    depth: string
+}
