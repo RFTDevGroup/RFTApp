@@ -17,11 +17,11 @@
                 <label for="password">Jelszó: </label>
                 <input type="password" (ngModel)="password" name="password" id="password" class="form-control" placeholder="jelszó">
             </div>
-            <button type="submit" class="btn btn-primary">Regisztrálok</button>
+            <div>
+                <button type="submit" class="btn btn-primary">Regisztrálok</button>
+                <button class="btn btn-primary" (click)="!cancelRegistration()">Mégse</button>
+            </div>
         </form>
-        <div>
-            <button class="btn btn-primary" (click)="!cancelRegistration()">Mégse</button>
-        </div>  
         <div *ngIf="registerInvalid" class="alert alert-danger">{{errorMessage}}</div>
     </div>
 </div>

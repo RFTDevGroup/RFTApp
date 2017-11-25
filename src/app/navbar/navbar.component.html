@@ -24,7 +24,15 @@
             </ul>
             
             <div class="navbar-header navbar-right" *ngIf="isLoggedIn()">
-                <button class="btn btn-primary"(click)="logout()">Logout</button>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a [routerLink]="['']"
+                        routerLinkActive="active">{{this.userName}}</a>
+                    </li>
+                    <li>
+                        <button class="btn btn-primary"(click)="logout()">Logout</button>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

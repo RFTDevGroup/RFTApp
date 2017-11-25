@@ -32,8 +32,23 @@ export class UsersService {
             .catch(this.handleError);
     }
 
-    createUser(newUser) {
-        console.log(newUser)
+    /* Waiting on REST implementation
+    
+    getUser(id: number): Observable<IUsers> {
+        let headers = new Headers({
+            'Authorization': 'Basic ' + btoa(this._authService.getUsername() + ':' + this._authService.getPassword())
+        });
+        let options = new RequestOptions({
+            headers: headers
+        });
+
+        return this._http.get(environment.baseAddress + '/api/users/' + id, options)
+            .map(this.extractData)
+            .catch(this.handleError);
+
+    }*/
+
+    createUser(newUser) {    
         let headers = new Headers({
             'Content-Type': 'application/json'
         });
@@ -42,6 +57,19 @@ export class UsersService {
         });
 
         return this._http.post(environment.baseAddress + '/api/register', newUser, options)
+            .map((resp: Response) => { return resp.json() })
+            .catch(this.handleError);
+    }
+
+    updateUser(user) {
+        let headers = new Headers({
+            'Authorization': 'Basic ' + btoa(this._authService.getUsername() + ':' + this._authService.getPassword())
+        });
+        let options = new RequestOptions({
+                headers: headers
+        });
+
+        return this._http.put(environment.baseAddress + '/api/user/update', user, options)
             .map((resp: Response) => { return resp.json() })
             .catch(this.handleError);
     }
@@ -62,7 +90,6 @@ export class UsersService {
 
     private extractData(res: Response) {
         let body = res.json();
-        console.log(body);
         return body || [];
     }
 
@@ -74,7 +101,6 @@ export class UsersService {
             errorMessage = `Server returned code: ${err.status},
             error message is: ${err.message}`;
         }
-        console.error(errorMessage);
         return Observable.throw(errorMessage);
     }
 }

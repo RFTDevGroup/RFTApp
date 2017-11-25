@@ -6,7 +6,7 @@ import { LocalStorageService } from 'angular-2-local-storage';
 
 @Injectable()
 export class AuthService {
-    currentUser: any
+    currentAuthorities: any
     private username;
     private password;
    
@@ -49,7 +49,7 @@ export class AuthService {
         return this._http.get('http://localhost:8080/transporthub/api/login', options)
         .do(resp => {
             if(resp) {
-                this.currentUser = <any>resp.json().user;
+                localStorage.setItem("authority", JSON.stringify(resp));
             }
         }).catch(error => {
             return Observable.of(false);

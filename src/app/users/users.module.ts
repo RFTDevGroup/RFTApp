@@ -12,6 +12,7 @@ import { UserDetailsComponent } from './userDetails.component';
 @NgModule({
   imports: [
     RouterModule.forChild([
+      { path: 'users/:id', component: UserDetailsComponent},
       { path: 'users', component: UsersListComponent },
       { path: 'create', component: UserCreateComponent }
     ]),

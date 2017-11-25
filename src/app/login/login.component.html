@@ -15,14 +15,13 @@
       mouseoverLogin">Required</em>
       <input (ngModel)="password" name="password" id="password" type="password" class="form-control" placeholder="Password..." required/>
     </div>
-        
-    <span (mouseenter)="mouseoverLogin = true" (mouseleave)="mouseoverLogin = false">
-    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Belépés</button>
-    </span>
+    <div>   
+      <span (mouseenter)="mouseoverLogin = true" (mouseleave)="mouseoverLogin = false">
+      <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Belépés</button>
+      </span>
+      <button class="btn btn-primary" (click)="userCreatePage()">Regisztráció</button>
+    </div>  
   </form>
-  <div>
-    <button class="btn btn-primary" (click)="userCreatePage()">Regisztráció</button>
-  </div>
   <br>
   <div *ngIf="loginInvalid" class="alert alert-danger">{{errorMessage}}</div>
 </div>

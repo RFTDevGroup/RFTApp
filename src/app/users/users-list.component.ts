@@ -46,7 +46,6 @@ export class UsersListComponent implements OnInit {
         this.filteredUsers = this.users;
       },
       error => this.errorMessage = <any>error);
-      console.log(this.users);
 
   }
 
