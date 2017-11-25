@@ -28,13 +28,13 @@
                         <input class="form-control" formControlName="depth" placeholder="cm">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group form-part">
                         <label for="description">Leírás</label>
                         <textarea class="form-control" formControlName="description"></textarea>
                     </div>
                 </div>
                 <div class="container-create">
-                    <label class="main-label">Címzési adatok</label>
+                    <label class="main-label">Indulás helye</label>
                     <div class="form-group form-part">
                         <label for="FromCountry">Ország</label>
                         <input class="form-control" formControlName="FromCountry">
@@ -53,7 +53,46 @@
                         <label for="FromNumber">Házszám</label>
                         <input class="form-control" formControlName="FromNumber">
                     </div>
+                    <div class="form-group form-parts">
+                        <label for="FromDate">Dátum</label>
+                        <input type="date" class="form-control" formControlName="FromDate">
+                    </div>
+                    <div class="form-group form-parts">
+                        <label for="FromTime">Idő</label>
+                        <input type="time" class="form-control" formControlName="FromTime">
+                    </div>
                 </div>
+
+                <div class="container-create">
+                        <label class="main-label">Érkezés helye</label>
+                        <div class="form-group form-part">
+                            <label for="ToCountry">Ország</label>
+                            <input class="form-control" formControlName="ToCountry">
+                        </div>
+                        <div class="form-group form-parts">
+                            <label for="ToZipcode">Irányítószám</label>
+                            <input class="form-control" formControlName="ToZipcode">
+    
+                            <label for="ToCity">Város</label>
+                            <input class="form-control" formControlName="ToCity">
+                        </div>
+                        <div class="form-group form-parts">
+                            <label for="ToStreet">Utca</label>
+                            <input class="form-control" formControlName="ToStreet">
+    
+                            <label for="ToNumber">Házszám</label>
+                            <input class="form-control" formControlName="ToNumber">
+                        </div>
+                        <div class="form-group form-parts">
+                            <label for="ToDate">Dátum</label>
+                            <input type="date" class="form-control" formControlName="ToDate">
+                        </div>
+                        <div class="form-group form-parts">
+                            <label for="ToTime">Idő</label>
+                            <input type="time" class="form-control" formControlName="ToTime">
+                        </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Létrehozás</button>
             </form>
     </div>
 </div>

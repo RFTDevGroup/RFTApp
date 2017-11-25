@@ -22,11 +22,21 @@ export class TransportCreateComponent implements OnInit {
             "depth": ['', Validators.required],
             "description": [''],
 
-            "fromCountry": ['', Validators.required],
-            "fromZipcode": ['', Validators.required],
-            "fromCity": ['', Validators.required],
-            "fromStreet": ['', Validators.required],
-            "fromNumber": ['', Validators.required]
+            "FromCountry": ['', Validators.required],
+            "FromZipcode": ['', Validators.required],
+            "FromCity": ['', Validators.required],
+            "FromStreet": ['', Validators.required],
+            "FromNumber": ['', Validators.required],
+            "FromDate": ['', Validators.required],
+            "FromTime": ['', Validators.required],
+
+            "ToCountry": ['', Validators.required],
+            "ToZipcode": ['', Validators.required],
+            "ToCity": ['', Validators.required],
+            "ToStreet": ['', Validators.required],
+            "ToNumber": ['', Validators.required],
+            "ToDate": ['', Validators.required],
+            "ToTime": ['', Validators.required]
         });
     }
 
@@ -35,6 +45,6 @@ export class TransportCreateComponent implements OnInit {
     }
 
     createTransport() {
-
+        console.log(this.transportCreateForm)
     }
 }

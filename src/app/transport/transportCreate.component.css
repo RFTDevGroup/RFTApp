@@ -20,11 +20,15 @@
 
 .container-create {
     float: left;
-    width: 55%
+    width: 100%
 }
 
 textarea {
     resize: none;
     width: 90%;
     height: 140px;
+}
+
+.btn {
+    margin-top: 20px;
 }
