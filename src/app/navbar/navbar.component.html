@@ -1,0 +1,39 @@
+<div class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">Transporthub</a>
+        </div>
+
+        <div class="collapse navbar-collapse" *ngIf="isLoggedIn()">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a [routerLink]="['']"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}">Aukció</a>
+                </li>
+                <li>
+                    <a [routerLink]="['users']"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}">Felhasználók</a>
+                </li>
+                <li>
+                    <a [routerLink]="['']"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}">Transzportok</a>
+                </li>
+            </ul>
+            
+            <div class="navbar-header navbar-right" *ngIf="isLoggedIn()">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a [routerLink]="['']"
+                        routerLinkActive="active">{{this.userName}}</a>
+                    </li>
+                    <li>
+                        <button class="btn btn-primary"(click)="logout()">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { IUsers } from "./users";
 import { UsersService } from "./users.service";
-import { AuthService } from '../login/auth.service'
+import { AuthService } from '../login/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './users-list.component.html',
@@ -19,7 +20,8 @@ export class UsersListComponent implements OnInit {
 
   constructor(
     private _usersService: UsersService,
-    private _authService: AuthService) { }
+    private _authService: AuthService,
+    private _router: Router) { }
 
   _listFilter: string;
     get listFilter(): string {
@@ -40,10 +42,22 @@ export class UsersListComponent implements OnInit {
   ngOnInit(): void {
     this._usersService.getUsers()
       .subscribe(users => {
-        this.users.push(users);
+        this.users = users;
         this.filteredUsers = this.users;
       },
       error => this.errorMessage = <any>error);
+
+  }
+
+  deleteUser (id: number){
+    this._usersService.deleteUser(id)
+      .subscribe(resp => {
+        if (!resp) {
+          console.log('Sikertelen törlés');
+        } else {
+          console.log('Sikeres törlés!');
+        }
+      })
   }
 
 }

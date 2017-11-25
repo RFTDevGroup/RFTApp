@@ -4,20 +4,27 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { LocalStorageModule } from 'angular-2-local-storage';
 
 import { AppComponent } from './app.component';
 import { UsersModule } from './users/users.module';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './login/auth.service';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    LocalStorageModule.withConfig({
+      prefix: 'app-root',
+      storageType: 'localStorage'
+    }),
     UsersModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent},

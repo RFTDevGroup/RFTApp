@@ -4,14 +4,14 @@
   </div>
   <div class='panel-body'>
     <div class='row'>
-      <div class='col-md-2'>Filter by:</div>
+      <div class='col-md-2'>Keresés:</div>
       <div class='col-md-4'>
         <input type='text' [(ngModel)]='listFilter'/>
       </div>
     </div>
     <div class='row'>
       <div class='col-md-6'>
-        <h3>Filtered by: {{listFilter}}</h3>
+        <a>Create User</a>
       </div>
     </div>
     <div class='table-responsive'>
@@ -19,24 +19,28 @@
        *ngIf='users && users.length'>
         <thead>
           <tr>
-            <th>User Id</th>
             <th>Username</th>
             <th>First name</th>
             <th>Last name</th>
             <th>Email</th>
             <th>Address</th>
-            <th>Role</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor='let user of filteredUsers'>
-            <td>{{user.id}}</td>
-            <td>{{user.userName</td>
+            <td>{{user.userName}}</td>
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>
             <td>{{user.email}}</td>
             <td>{{user.address}}</td>
-            <td>{{user.role}}</td>
+            <td>
+                <button class="btn btn-primary">Szerkeszt</button>
+            </td>
+            <td>
+                <button class="btn btn-primary" (click)="deleteUser(user.id)">Törlés</button>
+            </td>
           </tr>
         </tbody>
       </table>
