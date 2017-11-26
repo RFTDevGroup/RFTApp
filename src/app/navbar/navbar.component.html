@@ -17,7 +17,7 @@
                     [routerLinkActiveOptions]="{exact:true}">Felhasználók</a>
                 </li>
                 <li>
-                    <a [routerLink]="['']"
+                    <a [routerLink]="['transport']"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{exact:true}">Transzportok</a>
                 </li>
@@ -27,10 +27,10 @@
                 <ul class="nav navbar-nav">
                     <li>
                         <a [routerLink]="['']"
-                        routerLinkActive="active">{{this.userName}}</a>
+                        routerLinkActive="active">Saját profil</a>
                     </li>
                     <li>
-                        <button class="btn btn-primary"(click)="logout()">Logout</button>
+                        <button class="btn"(click)="logout()">Logout</button>
                     </li>
                 </ul>
             </div>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { Http, Response, Headers, RequestOptions } from '@angular/http'
 import { Observable } from 'rxjs/Rx'
 import { LocalStorageService } from 'angular-2-local-storage';
+import { Router } from '@angular/router';
 
 
 @Injectable()
@@ -13,7 +14,8 @@ export class AuthService {
 
     constructor(
         private _http: Http,
-        localStorage: LocalStorageService){
+        localStorage: LocalStorageService,
+        private _router: Router){
         
     }
 
@@ -46,7 +48,7 @@ export class AuthService {
         localStorage.setItem("userName", this.username);
         localStorage.setItem("password", this.password);
 
-        return this._http.get('http://localhost:8080/transporthub/api/login', options)
+        return this._http.get('http://localhost:8080/transporthub/api/login/', options)
         .do(resp => {
             if(resp) {
                 localStorage.setItem("authority", JSON.stringify(resp));

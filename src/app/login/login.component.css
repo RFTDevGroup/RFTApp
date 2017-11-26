@@ -3,3 +3,12 @@ em {
     color: #E05C65;
     padding-left: 10px;
 }
+
+.login {
+    margin: auto;
+    width: 30%;
+}
+
+.btn {
+    margin-bottom: 20px;
+}
