@@ -7,7 +7,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import { AuthService } from '../login/auth.service';
 import { Router } from '@angular/router';
-import { ITransport, ITransportResponse } from './transport';
+import { ITransport, ITransportResponse, ITransportCreate } from './transport';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../environments/environment';
 
@@ -36,7 +36,7 @@ export class TransportService {
             .catch(this.handleError);
     }
 
-    createTransport(transport: ITransport) {
+    createTransport(transport: ITransportCreate) {
         let headers =  new Headers({
             'Authorization': 'Basic ' + btoa(this._authService.getUsername() + ':' + this._authService.getPassword())
         });

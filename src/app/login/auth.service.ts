@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { Http, Response, Headers, RequestOptions } from '@angular/http'
 import { Observable } from 'rxjs/Rx'
 import { LocalStorageService } from 'angular-2-local-storage';
+import { Router } from '@angular/router';
 
 
 @Injectable()
@@ -13,7 +14,8 @@ export class AuthService {
 
     constructor(
         private _http: Http,
-        localStorage: LocalStorageService){
+        localStorage: LocalStorageService,
+        private _router: Router){
         
     }
 

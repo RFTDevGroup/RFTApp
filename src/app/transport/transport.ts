@@ -21,7 +21,7 @@ export interface ITransportResponse {
     numberOfElements: any
 }
 
-export interface ItransportCreate {
+export interface ITransportCreate {
     cargo: ICargo,
     placeOfLoad: IAddress,
     placeOfUnload: IAddress,

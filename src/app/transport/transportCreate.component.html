@@ -10,21 +10,26 @@
                     <label class="main-label">Szállítmány adatok</label>
                     <div class="form-group">
                         <label for="name">Szállítmány neve</label>
+                        <em *ngIf="!transportCreateForm.valid">Kötelező</em>
                         <input class="form-control form-part" formControlName="name">
                     </div>
 
                     <div class="form-group form-parts">
                         <label for="weight">Szállítmány súlya</label>
+                        <em *ngIf="!transportCreateForm.valid">Kötelező</em>
                         <input class="form-control" formControlName="weight" placeholder="kg">
 
                         <label for="width">Szállítmány szélessége</label>
+                        <em *ngIf="!transportCreateForm.valid">Kötelező</em>
                         <input class="form-control" formControlName="width" placeholder="cm">
                     </div>
                     <div class="form-group form-parts">
                         <label for="height">Szállítmány hossza</label>
+                        <em *ngIf="!transportCreateForm.valid">Kötelező</em>
                         <input class="form-control" formControlName="height" placeholder="cm">
 
                         <label for="depth">Szállítmány magassága</label>
+                        <em *ngIf="!transportCreateForm.valid">Kötelező</em>
                         <input class="form-control" formControlName="depth" placeholder="cm">
                     </div>
 
@@ -32,15 +37,23 @@
                         <label for="description">Leírás</label>
                         <textarea class="form-control" formControlName="description"></textarea>
                     </div>
+
+                    <div class="form-group form-parts">
+                        <label for="startingPrice">Kezdeti ár</label>
+                        <em *ngIf="!transportCreateForm.valid">Kötelező</em>
+                        <input class="form-control" formControlName="startingPrice" placeholder="Ft">
+                    </div>
                 </div>
                 <div class="container-create">
                     <label class="main-label">Indulás helye</label>
                     <div class="form-group form-part">
                         <label for="FromCountry">Ország</label>
+                        <em *ngIf="!transportCreateForm.valid">Kötelező</em>
                         <input class="form-control" formControlName="FromCountry">
                     </div>
                     <div class="form-group form-parts">
                         <label for="FromZipcode">Irányítószám</label>
+                        <em *ngIf="!transportCreateForm.valid">Kötelező</em>
                         <input class="form-control" formControlName="FromZipcode">
 
                         <label for="FromCity">Város</label>
@@ -48,18 +61,17 @@
                     </div>
                     <div class="form-group form-parts">
                         <label for="FromStreet">Utca</label>
+                        <em *ngIf="!transportCreateForm.valid">Kötelező</em>
                         <input class="form-control" formControlName="FromStreet">
 
                         <label for="FromNumber">Házszám</label>
+                        <em *ngIf="!transportCreateForm.valid">Kötelező</em>
                         <input class="form-control" formControlName="FromNumber">
                     </div>
                     <div class="form-group form-parts">
                         <label for="FromDate">Dátum</label>
+                        <em *ngIf="!transportCreateForm.valid">Kötelező</em>
                         <input type="date" class="form-control" formControlName="FromDate">
-                    </div>
-                    <div class="form-group form-parts">
-                        <label for="FromTime">Idő</label>
-                        <input type="time" class="form-control" formControlName="FromTime">
                     </div>
                 </div>
 
@@ -67,32 +79,36 @@
                         <label class="main-label">Érkezés helye</label>
                         <div class="form-group form-part">
                             <label for="ToCountry">Ország</label>
+                            <em *ngIf="!transportCreateForm.valid">Kötelező</em>
                             <input class="form-control" formControlName="ToCountry">
                         </div>
                         <div class="form-group form-parts">
                             <label for="ToZipcode">Irányítószám</label>
+                            <em *ngIf="!transportCreateForm.valid">Kötelező</em>
                             <input class="form-control" formControlName="ToZipcode">
     
                             <label for="ToCity">Város</label>
+                            <em *ngIf="!transportCreateForm.valid">Kötelező</em>
                             <input class="form-control" formControlName="ToCity">
                         </div>
                         <div class="form-group form-parts">
                             <label for="ToStreet">Utca</label>
+                            <em *ngIf="!transportCreateForm.valid">Kötelező</em>
                             <input class="form-control" formControlName="ToStreet">
     
                             <label for="ToNumber">Házszám</label>
+                            <em *ngIf="!transportCreateForm.valid">Kötelező</em>
                             <input class="form-control" formControlName="ToNumber">
                         </div>
                         <div class="form-group form-parts">
                             <label for="ToDate">Dátum</label>
+                            <em *ngIf="!transportCreateForm.valid">Kötelező</em>
                             <input type="date" class="form-control" formControlName="ToDate">
                         </div>
-                        <div class="form-group form-parts">
-                            <label for="ToTime">Idő</label>
-                            <input type="time" class="form-control" formControlName="ToTime">
-                        </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Létrehozás</button>
+                <button type="submit" class="btn btn-primary" [disabled]="!transportCreateForm.valid"
+                    (mouseenter)="mouseoverSubmit = true" (mouseleave)="mouseoverSubmit = false">Létrehozás</button>
+                <button class="btn btn-primary" (click)="cancelCreate()">Mégse</button>
             </form>
     </div>
 </div>
