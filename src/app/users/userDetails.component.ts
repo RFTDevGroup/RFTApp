@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Input } from '@angular/core'
 import { UsersService } from './users.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params  } from '@angular/router';
 import { IUsers } from './users';
 
 @Component({
@@ -9,14 +9,20 @@ import { IUsers } from './users';
 })
 export class UserDetailsComponent implements OnInit {
 
-    currentUser: IUsers;
+    currentUser: any
+    @Input() userId;
 
     constructor(
         private _userService: UsersService,
-        private _router: Router
+        private _router: Router,
+        private _route: ActivatedRoute
     ) { }
 
     ngOnInit() {
-        
+        this._route.data.forEach((data) => {
+            this.currentUser = data['user']
+        })
+
+        console.log(this.currentUser)
     }
 }

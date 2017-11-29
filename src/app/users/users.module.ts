@@ -7,12 +7,14 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from '../login/auth.service';
 import { UserCreateComponent } from './userCreate.component';
 import { UserDetailsComponent } from './userDetails.component';
+import { UserResolver } from './user-resolver.service';
 
 
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: 'users/:id', component: UserDetailsComponent},
+      { path: 'users/:id', component: UserDetailsComponent,
+      resolve: {user: UserResolver}},
       { path: 'users', component: UsersListComponent },
       { path: 'create', component: UserCreateComponent }
     ]),
@@ -26,7 +28,8 @@ import { UserDetailsComponent } from './userDetails.component';
   ],
   providers: [
     UsersService,
-    AuthService
+    AuthService,
+    UserResolver
   ]
 })
 export class UsersModule { }

@@ -24,7 +24,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor='let user of filteredUsers'>
+          <tr *ngFor='let user of filteredUsers'  [routerLink]="['users/', user.id]">
             <td>{{user.userName}}</td>
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>

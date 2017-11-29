@@ -8,9 +8,6 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthService {
     currentAuthorities: any
-    private username;
-    private password;
-   
 
     constructor(
         private _http: Http,
@@ -42,16 +39,12 @@ export class AuthService {
             password: password
         };
 
-        this.username = username;
-        this.password = password;
-
-        localStorage.setItem("userName", this.username);
-        localStorage.setItem("password", this.password);
-
         return this._http.get('http://localhost:8080/transporthub/api/login/', options)
         .do(resp => {
             if(resp) {
                 localStorage.setItem("authority", JSON.stringify(resp));
+                localStorage.setItem("userName", username);
+                localStorage.setItem("password", password);
             }
         }).catch(error => {
             return Observable.of(false);
