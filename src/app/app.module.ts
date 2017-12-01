@@ -12,6 +12,7 @@ import { TransportModule } from './transport/transport.module';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './login/auth.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AuctionModule } from './auction/auction.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     }),
     UsersModule,
     TransportModule,
+    AuctionModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent},
       { path: 'app', component: AppComponent },
