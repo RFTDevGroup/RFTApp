@@ -98,7 +98,7 @@ export class TransportCreateComponent implements OnInit {
                     console.log('Sikeres hozzáadás!');
                     this._router.navigate(['transport']);
                 }
-            })
+            }, error => {console.log(error)})
 
     }
 }

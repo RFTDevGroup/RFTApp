@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userName = localStorage.getItem("userName");
+        this.userName = sessionStorage.getItem("userName");
     }
 
     logout() {
@@ -28,5 +28,9 @@ export class NavbarComponent implements OnInit {
 
     isLoggedIn() {
         return this._authService.isAuthenticated();
+    }
+
+    isAdmin() {
+        return this._authService.isAdmin();
     }
 }

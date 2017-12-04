@@ -6,12 +6,7 @@
 
         <div class="collapse navbar-collapse" *ngIf="isLoggedIn()">
             <ul class="nav navbar-nav">
-                <li>
-                    <a [routerLink]="['auction']"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact:true}">Aukció</a>
-                </li>
-                <li>
+                <li *ngIf="isAdmin()">
                     <a [routerLink]="['users']"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{exact:true}">Felhasználók</a>
