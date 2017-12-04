@@ -32,8 +32,6 @@ export class UsersService {
             .catch(this.handleError);
     }
 
-    /* Waiting on REST implementation
-    
     getUser(id: number): Observable<IUsers> {
         let headers = new Headers({
             'Authorization': 'Basic ' + btoa(this._authService.getUsername() + ':' + this._authService.getPassword())
@@ -42,11 +40,11 @@ export class UsersService {
             headers: headers
         });
 
-        return this._http.get(environment.baseAddress + '/api/users/' + id, options)
+        return this._http.get(environment.baseAddress + '/api/user/' + id, options)
             .map(this.extractData)
             .catch(this.handleError);
 
-    }*/
+    }
 
     createUser(newUser) {    
         let headers = new Headers({

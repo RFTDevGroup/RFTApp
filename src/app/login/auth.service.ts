@@ -3,30 +3,28 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http'
 import { Observable } from 'rxjs/Rx'
 import { LocalStorageService } from 'angular-2-local-storage';
 import { Router } from '@angular/router';
+import { forEach } from '@angular/router/src/utils/collection';
 
 
 @Injectable()
 export class AuthService {
     currentAuthorities: any
-    private username;
-    private password;
-   
 
     constructor(
         private _http: Http,
-        localStorage: LocalStorageService,
+        //localStorage: LocalStorageService,
         private _router: Router){
         
     }
 
     getUsername() {
-        return localStorage.getItem("userName");
+        return sessionStorage.getItem("userName");
     }
 
 
 
     getPassword() {
-        return localStorage.getItem("password");
+        return sessionStorage.getItem("password");
     }
 
     loginUser(username: string,
@@ -42,16 +40,14 @@ export class AuthService {
             password: password
         };
 
-        this.username = username;
-        this.password = password;
-
-        localStorage.setItem("userName", this.username);
-        localStorage.setItem("password", this.password);
-
         return this._http.get('http://localhost:8080/transporthub/api/login/', options)
         .do(resp => {
             if(resp) {
-                localStorage.setItem("authority", JSON.stringify(resp));
+                this.currentAuthorities = resp;
+                sessionStorage.setItem("authority", JSON.stringify(resp));
+                sessionStorage.setItem("userName", username);
+                sessionStorage.setItem("password", password);
+                this.setAdmin()
             }
         }).catch(error => {
             return Observable.of(false);
@@ -60,26 +56,38 @@ export class AuthService {
     }
 
     isAuthenticated(){
-        if (localStorage.getItem("userName") == null 
-            || localStorage.getItem("password") == null) {
+        if (sessionStorage.getItem("userName") == null 
+            || sessionStorage.getItem("password") == null) {
                 return false;
         }
         return true;
     }
 
-    //TODO
-    checkAuthenticationStatus() {
-
+    setAdmin() {
+        var auth = this.currentAuthorities;
+        if (auth == null) {
+            return false;
+        }
+        var authBody = auth.json().authorities;
+        for(let i of authBody) {
+            if (i.authority == 'ROLE_ADMIN') {
+                sessionStorage.setItem("role", "true");
+            }
+        }
     }
 
-    //TODO
-    updateCurrentUser() {
-
+    isAdmin() {
+        var auth = sessionStorage.getItem("role");
+        if (auth === "true") {
+            return true;
+        }
+        return false;
     }
 
     //TODO
     logout(){
-        localStorage.removeItem("userName");
-        localStorage.removeItem("password");
+        sessionStorage.removeItem("userName");
+        sessionStorage.removeItem("password");
+        sessionStorage.removeItem("role");
     }
 }

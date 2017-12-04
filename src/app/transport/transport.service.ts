@@ -58,7 +58,7 @@ export class TransportService {
         });
 
         return this._http.delete(environment.baseAddress + '/api/transport/' + id, options)
-            .map((response: Response) => { return response.json()})
+            .map((response: Response) => { return response })
             .catch(this.handleError);
     }
 

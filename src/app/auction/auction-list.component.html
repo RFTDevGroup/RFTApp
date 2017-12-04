@@ -1,0 +1,27 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+    <div class='panel-body'>
+        <div class='table-responsive'>
+            <table class='table' *ngIf='auctions && auctions.length'>
+                <thead>
+                    <tr>
+                        <th>Highest bidder</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let auction of auctions'>
+                        <td>{{auction?.bidder?.userName}}</td>
+                        <td>{{auction?.bidder?.details?.firstName}}</td>
+                        <td>{{auction?.bidder?.details?.lastName}}</td>
+                        <td>{{auction?.amount}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>    

@@ -34,15 +34,13 @@ export class TransportCreateComponent implements OnInit {
             "FromStreet": ['', Validators.required],
             "FromNumber": ['', Validators.required],
             "FromDate": ['', Validators.required],
-            "FromTime": ['', Validators.required],
 
             "ToCountry": ['', Validators.required],
             "ToZipcode": ['', Validators.required],
             "ToCity": ['', Validators.required],
             "ToStreet": ['', Validators.required],
             "ToNumber": ['', Validators.required],
-            "ToDate": ['', Validators.required],
-            "ToTime": ['', Validators.required]
+            "ToDate": ['', Validators.required]
         });
     }
 
@@ -100,7 +98,7 @@ export class TransportCreateComponent implements OnInit {
                     console.log('Sikeres hozzáadás!');
                     this._router.navigate(['transport']);
                 }
-            })
+            }, error => {console.log(error)})
 
     }
 }

@@ -8,6 +8,6 @@ export class UserResolver implements Resolve<any> {
 
     }
     resolve(route: ActivatedRouteSnapshot) {
-        return this._usersService;
+        return this._usersService.getUser(route.params['id']);
     }
 }
