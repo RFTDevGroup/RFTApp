@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userName = sessionStorage.getItem("userName");
+        this.userName = this._authService.getUsername();
     }
 
     logout() {

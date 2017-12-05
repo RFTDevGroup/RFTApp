@@ -20,7 +20,8 @@ export class UsersListComponent implements OnInit {
 
   constructor(
     private _usersService: UsersService,
-    private _authService: AuthService) { }
+    private _authService: AuthService,
+    private _router: Router) { }
 
   _listFilter: string;
     get listFilter(): string {
@@ -49,6 +50,11 @@ export class UsersListComponent implements OnInit {
       this.filteredUsers = this.users;
     },
     error => this.errorMessage = <any>error);
+  }
+
+  goToUser(id: number) {
+    console.log(id);
+    this._router.navigate(['/user', id]);
   }
 
   deleteUser (id: number){

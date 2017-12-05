@@ -24,14 +24,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor='let user of filteredUsers'  [routerLink]="['users/', user.id]">
+          <tr *ngFor='let user of filteredUsers'>
             <td>{{user.userName}}</td>
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>
             <td>{{user.email}}</td>
             <td>{{user.address}}</td>
             <td>
-                <button class="btn btn-primary">Szerkeszt</button>
+                <button class="btn btn-primary" (click)="goToUser(user.id)">Szerkeszt</button>
             </td>
             <td>
                 <button class="btn btn-primary" (click)="deleteUser(user.id)">Törlés</button>

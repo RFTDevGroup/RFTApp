@@ -1,0 +1,42 @@
+<div class="panel panel-primary">
+    <div class="panel-header">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body" *ngIf="currentUser">
+        <form [formGroup]="userGroupForm" (submit)="updateUser()">
+            <div class="container-create">
+                <div class="form-group">
+                    <label for="userName">Felhasználónév</label>
+                    <em *ngIf="!userGroupForm.valid">Kötelező</em>
+                    <input class="form-control form-part" formControlName="firstName">
+                </div>
+                <div class="form-group">
+                    <label for="firstName">Keresztnév</label>
+                    <em *ngIf="!userGroupForm.valid">Kötelező</em>
+                    <input class="form-control form-part" formControlName="firstName">
+                </div>
+                <div class="form-group">
+                    <label for="firstName">Vezetéknév</label>
+                    <em *ngIf="userGroupForm.valid">Kötelező</em>
+                    <input class="form-control form-part" formcontrolName="lastName">
+                </div>
+                <div class="form-group">
+                    <label for="emailAddress">Email cím</label>
+                    <em *ngIf="userGroupForm.valid">Kötelező</em>
+                    <input class="form-control form-part" formcontrolName="emailAddress">
+                </div>
+                <!--<div class="form-group">
+                    <label for="country">Ország</label>
+                    <em *ngIf="userGroupForm.valid">Kötelező</em>
+                    <input class="form-control form-part" formcontrolName="country">
+                </div> -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"
+                    [disabled]="!userGroupForm.valid">Mentés</button>
+                    <button class="btn btn-primary" (click)="cancel()">Mégse</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
