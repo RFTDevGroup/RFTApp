@@ -9,7 +9,6 @@ export interface IUsers {
 }
 
 export interface IAddress {
-    id: number, 
     country: string,
     zipcode: string,
     city: string,

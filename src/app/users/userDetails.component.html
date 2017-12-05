@@ -8,7 +8,7 @@
                 <div class="form-group">
                     <label for="userName">Felhasználónév</label>
                     <em *ngIf="!userGroupForm.valid">Kötelező</em>
-                    <input class="form-control form-part" formControlName="firstName">
+                    <input class="form-control form-part" formControlName="userName">
                 </div>
                 <div class="form-group">
                     <label for="firstName">Keresztnév</label>
@@ -17,19 +17,40 @@
                 </div>
                 <div class="form-group">
                     <label for="firstName">Vezetéknév</label>
-                    <em *ngIf="userGroupForm.valid">Kötelező</em>
-                    <input class="form-control form-part" formcontrolName="lastName">
+                    <em *ngIf="!userGroupForm.valid">Kötelező</em>
+                    <input class="form-control form-part" formControlName="lastName">
                 </div>
                 <div class="form-group">
                     <label for="emailAddress">Email cím</label>
-                    <em *ngIf="userGroupForm.valid">Kötelező</em>
-                    <input class="form-control form-part" formcontrolName="emailAddress">
+                    <em *ngIf="!userGroupForm.valid">Kötelező</em>
+                    <input class="form-control form-part" formControlName="emailAddress">
                 </div>
-                <!--<div class="form-group">
+                <div class="form-group">
                     <label for="country">Ország</label>
-                    <em *ngIf="userGroupForm.valid">Kötelező</em>
-                    <input class="form-control form-part" formcontrolName="country">
-                </div> -->
+                    <em *ngIf="!userGroupForm.valid">Kötelező</em>
+                    <input class="form-control form-part" formControlName="country">
+                </div>
+                <div class="form-group">
+                    <label for="zipcode">Irányítószám</label>
+                    <em *ngIf="!userGroupForm.valid">Kötelező</em>
+                    <input class="form-control form-part" formControlName="zipcode">
+                </div>
+                <div class="form-group">
+                    <label for="city">Város</label>
+                    <em *ngIf="!userGroupForm.valid">Kötelező</em>
+                    <input class="form-control form-part" formControlName="city">
+                </div>
+                <div class="form-group">
+                    <label for="street">Utca</label>
+                    <em *ngIf="!userGroupForm.valid">Kötelező</em>
+                    <input class="form-control form-part" formControlName="street">
+                </div>
+                <div class="form-group">
+                    <label for="houseNo">Házszám</label>
+                    <em *ngIf="!userGroupForm.valid">Kötelező</em>
+                    <input class="form-control form-part" formControlName="houseNo">
+                </div>
+
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary"
                     [disabled]="!userGroupForm.valid">Mentés</button>

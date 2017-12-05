@@ -22,7 +22,6 @@ export class AuthService {
     }
 
 
-
     getPassword() {
         return sessionStorage.getItem("password");
     }
