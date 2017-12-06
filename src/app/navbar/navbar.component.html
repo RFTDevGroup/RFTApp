@@ -16,6 +16,11 @@
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{exact:true}">Transzportok</a>
                 </li>
+                <li>
+                    <a [routerLink]="['messages']"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}">Üzenetek</a>
+                </li>
             </ul>
             
             <div class="navbar-header navbar-right" *ngIf="isLoggedIn()">
