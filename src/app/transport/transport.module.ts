@@ -5,10 +5,12 @@ import { RouterModule } from '@angular/router';
 import { TransportService } from './transport.service';
 import { TransportListComponent } from './transport-list.component';
 import { TransportCreateComponent } from './transportCreate.component';
+import { TransportDetailsComponent } from './transportDetails.component';
 
 @NgModule({
     imports:[
         RouterModule.forChild([
+            { path: 'transport/:id', component: TransportDetailsComponent },
             { path: 'transport/create', component: TransportCreateComponent },
             { path: 'transport', component: TransportListComponent }
           ]),
@@ -18,7 +20,8 @@ import { TransportCreateComponent } from './transportCreate.component';
     ],
     declarations: [
         TransportListComponent,
-        TransportCreateComponent
+        TransportCreateComponent,
+        TransportDetailsComponent
     ],
     providers: [
         TransportService

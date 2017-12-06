@@ -5,7 +5,7 @@
     <div class='panel-body'>
         <div class='row'>
             <div class='col-md-6'>
-                <a [routerLink]="['create']" >Create Transport</a>
+                <button class="btn btn-primary" [routerLink]="['create']" >Create Transport</button>
             </div>
         </div>
         <div class='table-responsive'>
@@ -13,12 +13,12 @@
                 *ngIf='transports && transports.length'>
                 <thead>
                     <tr>
-                        <th>Cargo Name</th>
-                        <th>Start</th>
-                        <th>Destination</th>
-                        <th>Days remaining</th>
-                        <th>Owner</th>
-                        <th>Price</th>
+                        <th>Neve</th>
+                        <th>Indulás helye</th>
+                        <th>Érkezés helye</th>
+                        <th>Induláig hátralévő</th>
+                        <th>Tulajdonos</th>
+                        <th>Jelenlegi ár</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -32,7 +32,7 @@
                         <td>{{transport.owner}}</td>
                         <td>{{transport.currentPrice}}</td>
                         <td>
-                            <button class="btn btn-primary">Szerkeszt</button>
+                            <button class="btn btn-primary" (click)="transportDetails(transport.id)">Részletek</button>
                         </td>
                         <td>
                             <button class="btn btn-primary" (click)="deleteTransport(transport.id)">Törlés</button>

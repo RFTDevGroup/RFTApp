@@ -1,0 +1,89 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Szállítmány adatai
+    </div>
+    <div div class="panel-body">
+        <div class='table-responsive'>
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="column-header">Szállítmány neve</td>
+                        <td>{{transport?.cargo?.name}}</td>
+                    </tr>
+                    <tr>
+                        <td class="column-header">Tulajdonos</td>
+                        <td>{{transport?.owner?.firstName}} {{transport?.owner?.lastName}}</td>
+                    </tr>
+                    <tr>
+                        <td class="column-header">Szállítmány adatai</td>
+                    </tr>
+                    <tr>
+                            <td class="column-header"></td>
+                        <td>Súlya</td>
+                        <td>{{transport?.cargo?.weight}} kg</td>
+                    </tr>
+                    <tr>
+                            <td class="column-header"></td>
+                        <td>Szélessége</td>
+                        <td>{{transport?.cargo?.width}} cm</td>
+                    </tr>
+                    <tr>
+                            <td class="column-header"></td>
+                        <td>Magassága</td>
+                        <td>{{transport?.cargo?.height}} cm</td>
+                    </tr>
+                    <tr>
+                            <td class="column-header"></td>
+                        <td>Hossza</td>
+                        <td>{{transport?.cargo?.depth}} cm</td>
+                    </tr>
+                    <tr>
+                            <td class="column-header"></td>
+                        <td>Felrakodás helye</td>
+                        <td>
+                            {{transport?.placeOfLoad?.country}}
+                            {{transport?.placeOfLoad?.zipcode}}
+                            {{transport?.placeOfLoad?.city}}
+                            {{transport?.placeOfLoad?.street}}
+                            {{transport?.placeOfLoad?.houseNo}}
+                        </td>
+                    </tr>
+                    <tr>
+                            <td class="column-header"></td>
+                        <td>Felrakodás időpontja</td>
+                        <td>
+                            {{transport?.timeOfLoad?.year}}
+                            {{transport?.timeOfLoad?.month}}
+                            {{transport?.timeOfLoad?.dayOfMonth}}
+                        </td>
+                    </tr>
+                    <tr>
+                            <td class="column-header"></td>
+                        <td>Lerakodás helye</td>
+                        <td>
+                            {{transport?.placeofUnload?.country}}
+                            {{transport?.placeofUnload?.zipcode}}
+                            {{transport?.placeofUnload?.city}}
+                            {{transport?.placeofUnload?.street}}
+                            {{transport?.placeofUnload?.houseNo}}
+                        </td>
+                    </tr>
+                    <tr>
+                            <td class="column-header"></td>
+                        <td>Lerakodás időpontja</td>
+                        <td>
+                            {{transport?.timeOfUnload?.year}}
+                            {{transport?.timeOfUnload?.month}}
+                            {{transport?.timeOfUnload?.dayOfMonth}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

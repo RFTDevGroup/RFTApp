@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthService } from './login/auth.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuctionModule } from './auction/auction.module';
+import { MessageModule } from './message/message.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AuctionModule } from './auction/auction.module';
       { path: '**', redirectTo: 'login', pathMatch: 'full'}
     ]),
     FormsModule,
-    HttpModule 
+    HttpModule,
+    MessageModule
   ],
   providers: [
     AuthService

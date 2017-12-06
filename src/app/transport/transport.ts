@@ -24,7 +24,7 @@ export interface ITransportResponse {
 export interface ITransportCreate {
     cargo: ICargo,
     placeOfLoad: IAddress,
-    placeOfUnload: IAddress,
+    placeofUnload: IAddress,
     timeOfLoad: Date,
     timeOfUnload: Date,
     startingPrice: number
@@ -45,4 +45,33 @@ export interface ICargo {
     width: number,
     height: string,
     depth: string
+}
+
+export interface IOwner {
+    userName: string,
+    firstName: string,
+    lastName: string
+}
+
+export interface IDate {
+    year: number,
+    month: string,
+    chronology: any,
+    era: string,
+    dayOfMonth: number,
+    dayOfWeek: string,
+    dayOfYear: number,
+    leapYear: boolean,
+    monthValue: number
+}
+
+export interface ITransportViewModel {
+    owner: IOwner,
+    cargo: ICargo,
+    placeOfLoad: IAddress,
+    timeOfLoad: IDate,
+    placeOfUnload: IAddress,
+    timeOfUnload: IDate,
+    bids: Array<any>,
+    currentPrice: number
 }

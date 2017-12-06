@@ -1,0 +1,9 @@
+
+td {
+    width: 350px;
+    display: inline-block;
+}
+
+.column-header {
+    font-weight: bold;
+}
