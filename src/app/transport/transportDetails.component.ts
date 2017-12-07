@@ -15,6 +15,8 @@ export class TransportDetailsComponent {
     transport: ITransportViewModel;
     transportEntity: any;
     errorMessage: string;
+    bidValue = 0;
+    bidInvalid = false;
 
     constructor(
         private _authService: AuthService,
@@ -28,9 +30,27 @@ export class TransportDetailsComponent {
         }).subscribe((resp) => {
             if (resp) {
                 this.transport = resp;
+                this.bidValue = this.transport.currentPrice;
             }
         }, error => { this.errorMessage = error});
 
         
+    }
+
+    return() {
+        this._router.navigate(['transports']);
+    }
+
+    makeBid() {
+        if (this.bidValue < this.transport.currentPrice) {
+            this._transportService.bidOnTransport(this.id, this.bidValue)
+                .subscribe(resp => {
+                    if (resp) {
+                        this._router.navigate(['transports']);
+                    }});
+        } else {
+            this.errorMessage = "Csak kisebb összeg adható meg!";
+            this.bidInvalid = true;
+        }
     }
 }

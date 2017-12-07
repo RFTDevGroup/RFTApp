@@ -5,7 +5,7 @@
     <div class='panel-body'>
         <div class='row'>
             <div class='col-md-6'>
-                <button class="btn btn-primary" [routerLink]="['create']" >Create Transport</button>
+                <button class="btn btn-primary" (click)="createTransport()" >Create Transport</button>
             </div>
         </div>
         <div class='table-responsive'>
@@ -16,7 +16,7 @@
                         <th>Neve</th>
                         <th>Indulás helye</th>
                         <th>Érkezés helye</th>
-                        <th>Induláig hátralévő</th>
+                        <th>Indulásig hátralévő</th>
                         <th>Tulajdonos</th>
                         <th>Jelenlegi ár</th>
                         <th></th>
@@ -31,11 +31,15 @@
                         <td>{{transport.daysRemaining}}</td>
                         <td>{{transport.owner}}</td>
                         <td>{{transport.currentPrice}}</td>
-                        <td>
-                            <button class="btn btn-primary" (click)="transportDetails(transport.id)">Részletek</button>
+                        <td class="buttons" *ngIf="!isOwnTransport(transport.owner)">
+                            <button class="btn btn-primary" (click)="transportDetails(transport.id)">
+                                <i class="fa fa-pencil"></i>
+                            </button>
                         </td>
-                        <td>
-                            <button class="btn btn-primary" (click)="deleteTransport(transport.id)">Törlés</button>
+                        <td class="buttons" *ngIf="isOwnTransport(transport.owner)">
+                            <button class="btn btn-primary" (click)="deleteTransport(transport.id)">
+                                <i class="fa fa-times"></i>
+                            </button>
                         </td>
                     </tr>
                 </tbody>

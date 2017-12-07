@@ -10,9 +10,9 @@ import { TransportDetailsComponent } from './transportDetails.component';
 @NgModule({
     imports:[
         RouterModule.forChild([
-            { path: 'transport/:id', component: TransportDetailsComponent },
             { path: 'transport/create', component: TransportCreateComponent },
-            { path: 'transport', component: TransportListComponent }
+            { path: 'transport/:id', component: TransportDetailsComponent },
+            { path: 'transports', component: TransportListComponent }
           ]),
           FormsModule,
           ReactiveFormsModule,

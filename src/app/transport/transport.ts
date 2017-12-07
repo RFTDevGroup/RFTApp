@@ -24,7 +24,7 @@ export interface ITransportResponse {
 export interface ITransportCreate {
     cargo: ICargo,
     placeOfLoad: IAddress,
-    placeofUnload: IAddress,
+    placeOfUnload: IAddress,
     timeOfLoad: Date,
     timeOfUnload: Date,
     startingPrice: number

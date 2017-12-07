@@ -14,6 +14,8 @@ import { AuthService } from './login/auth.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuctionModule } from './auction/auction.module';
 import { MessageModule } from './message/message.module';
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
+
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { MessageModule } from './message/message.module';
     ]),
     FormsModule,
     HttpModule,
-    MessageModule
+    MessageModule,
+    Angular2FontawesomeModule
   ],
   providers: [
     AuthService

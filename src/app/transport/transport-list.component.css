@@ -2,3 +2,7 @@ tr {
     border: 1px;
     border-color: grey;
 }
+
+.buttons {
+    width: 15px;
+}

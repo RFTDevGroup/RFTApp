@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TransportService } from './transport.service';
 import { ITransport, ITransportResponse } from './transport';
 import { Router } from '@angular/router';
+import { AuthService } from '../login/auth.service';
 
 @Component({
     templateUrl: './transport-list.component.html',
@@ -11,14 +12,14 @@ export class TransportListComponent implements OnInit{
     pageTitle: string = 'Transport List';
     errorMessage: string;
     listPageNumber: number = 0;
-    focusNo = 0;
 
     transports: ITransport[];
     response: ITransportResponse;
 
     constructor (
         private _transportService: TransportService,
-        private _router: Router
+        private _router: Router,
+        private _authService: AuthService
     ) { }
 
     ngOnInit() {
@@ -45,12 +46,17 @@ export class TransportListComponent implements OnInit{
             error => { console.log('Sikertelen törlés')});
     }
 
-    focusTransport(id: number) {
-        if(this.focusNo == 0 || this.focusNo == id) {
-            this.focusNo = id;
+    isOwnTransport(owner) {
+        if (owner == this._authService.getUsername()) {
+            return true;
         } else {
-            this.focusNo = 0;
+            return false;
         }
+    }
+
+    
+    createTransport() {
+        this._router.navigate(['transport/create']);
     }
 
 
