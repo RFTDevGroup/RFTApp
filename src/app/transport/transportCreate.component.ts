@@ -49,7 +49,7 @@ export class TransportCreateComponent implements OnInit {
     }
 
     cancelCreate() {
-        this._router.navigate(['transport']);
+        this._router.navigate(['transports']);
     }
 
     createTransport() {

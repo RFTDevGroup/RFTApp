@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       if(!resp) {
         this.loginInvalid = true;
       } else {
-        this._router.navigate(['transport'])
+        this._router.navigate(['transports'])
 
       }
     })

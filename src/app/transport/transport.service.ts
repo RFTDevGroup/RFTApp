@@ -7,7 +7,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import { AuthService } from '../login/auth.service';
 import { Router } from '@angular/router';
-import { ITransport, ITransportResponse, ITransportCreate } from './transport';
+import { ITransport, ITransportResponse, ITransportCreate, ITransportViewModel } from './transport';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../environments/environment';
 
@@ -36,6 +36,19 @@ export class TransportService {
             .catch(this.handleError);
     }
 
+    getTransport(id: number): Observable<ITransportViewModel> {
+        let headers =  new Headers({
+            'Authorization': 'Basic ' + btoa(this._authService.getUsername() + ':' + this._authService.getPassword())
+        });
+        let options = new RequestOptions({
+            headers: headers
+        });
+
+        return this._http.get(environment.baseAddress + '/api/transport/' + id, options)
+            .map((response: Response) => { return response.json() })
+            .catch(this.handleError);
+    }
+
     createTransport(transport: ITransportCreate) {
         let headers =  new Headers({
             'Authorization': 'Basic ' + btoa(this._authService.getUsername() + ':' + this._authService.getPassword())
@@ -45,7 +58,7 @@ export class TransportService {
         });
 
         return this._http.post(environment.baseAddress + '/api/transport/new', transport, options)
-            .map((response: Response) => { return response.json() })
+            .map((response: Response) => { return response })
             .catch(this.handleError);
     }
 
@@ -58,6 +71,19 @@ export class TransportService {
         });
 
         return this._http.delete(environment.baseAddress + '/api/transport/' + id, options)
+            .map((response: Response) => { return response })
+            .catch(this.handleError);
+    }
+
+    bidOnTransport(id: number, value: number) {
+        let headers =  new Headers({
+            'Authorization': 'Basic ' + btoa(this._authService.getUsername() + ':' + this._authService.getPassword())
+        });
+        let options = new RequestOptions({
+            headers: headers
+        });
+
+        return this._http.post(environment.baseAddress + '/api/transport/'+id+'/bid', value, options)
             .map((response: Response) => { return response })
             .catch(this.handleError);
     }

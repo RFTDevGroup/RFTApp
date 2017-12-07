@@ -12,17 +12,21 @@
                     [routerLinkActiveOptions]="{exact:true}">Felhasználók</a>
                 </li>
                 <li>
-                    <a [routerLink]="['transport']"
+                    <a [routerLink]="['transports']"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{exact:true}">Transzportok</a>
+                </li>
+                <li>
+                    <a [routerLink]="['messages']"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}">Üzenetek</a>
                 </li>
             </ul>
             
             <div class="navbar-header navbar-right" *ngIf="isLoggedIn()">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a [routerLink]="['']"
-                        routerLinkActive="active">Saját profil</a>
+                        <button class="btn" (click)="getSelf()">{{getUserName()}}</button>
                     </li>
                     <li>
                         <button class="btn"(click)="logout()">Logout</button>

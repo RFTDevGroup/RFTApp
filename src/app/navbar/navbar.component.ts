@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userName = sessionStorage.getItem("userName");
+        
     }
 
     logout() {
@@ -32,5 +32,14 @@ export class NavbarComponent implements OnInit {
 
     isAdmin() {
         return this._authService.isAdmin();
+    }
+
+    getUserName() {
+        return this._authService.getUsername();
+    }
+
+    getSelf() {
+        var id = 0;
+        this._router.navigate(['/user', id]);
     }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TransportService } from './transport.service';
 import { ITransport, ITransportResponse } from './transport';
+import { Router } from '@angular/router';
+import { AuthService } from '../login/auth.service';
 
 @Component({
     templateUrl: './transport-list.component.html',
@@ -15,7 +17,9 @@ export class TransportListComponent implements OnInit{
     response: ITransportResponse;
 
     constructor (
-        private _transportService: TransportService
+        private _transportService: TransportService,
+        private _router: Router,
+        private _authService: AuthService
     ) { }
 
     ngOnInit() {
@@ -30,12 +34,29 @@ export class TransportListComponent implements OnInit{
         error => { console.log('Lista sikertelen megjelenítése')});
     }
 
+    transportDetails(id: number) {
+        this._router.navigate(['/transport', id]);
+    }
+
     deleteTransport(id: number) {
         this._transportService.deleteTransport(id)
             .subscribe(response => {
                 this.listTransports();
             },
             error => { console.log('Sikertelen törlés')});
+    }
+
+    isOwnTransport(owner) {
+        if (owner == this._authService.getUsername()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    
+    createTransport() {
+        this._router.navigate(['transport/create']);
     }
 
 

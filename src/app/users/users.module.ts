@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { UsersListComponent } from './users-list.component';
 import { RouterModule } from '@angular/router';
 import { UsersService } from "./users.service";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../login/auth.service';
 import { UserCreateComponent } from './userCreate.component';
@@ -13,12 +13,12 @@ import { UserResolver } from './user-resolver.service';
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: 'users/:id', component: UserDetailsComponent,
-      resolve: {user: UserResolver}},
+      { path: 'user/:id', component: UserDetailsComponent},
       { path: 'users', component: UsersListComponent },
       { path: 'create', component: UserCreateComponent }
     ]),
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
   ],
   declarations: [
