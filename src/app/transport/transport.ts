@@ -75,3 +75,7 @@ export interface ITransportViewModel {
     bids: Array<any>,
     currentPrice: number
 }
+
+export interface IBidValue {
+    amount: number;
+}

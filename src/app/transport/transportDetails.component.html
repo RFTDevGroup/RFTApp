@@ -88,9 +88,14 @@
                     </tr>
                     <tr>
                         <td class="column-header">Licit összege: </td>
+                        <td>{{bidValue}}</td>
                         <td>
-                            <input type="text" [(ngModel)]="bidValue">
+                            <input type="text" [(ngModel)]="newBidValue">
                         </td>
+                    </tr>
+                    <tr>
+                        <td class="column-header">Licit tulajdonos</td>
+                        <td>{{lowestBidder}}</td>
                     </tr>
                 </tbody>
             </table>

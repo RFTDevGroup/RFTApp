@@ -29,12 +29,18 @@
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>
             <td>{{user.email}}</td>
-            <td>{{user.address}}</td>
             <td>
-                <button class="btn btn-primary" (click)="goToUser(user.id)">Szerkeszt</button>
+              {{user.address.country}}, {{user.address.zipcode}} {{user.address.city}},
+              {{user.address.street}} {{user.address.houseNo}}</td>
+            <td class="buttons">
+                <button class="btn btn-primary" (click)="goToUser(user.id)">
+                    <i class="fa fa-pencil"></i>
+                </button>
             </td>
-            <td>
-                <button class="btn btn-primary" (click)="deleteUser(user.id)">Törlés</button>
+            <td class="buttons">
+                <button class="btn btn-primary" (click)="deleteUser(user.id)">
+                    <i class="fa fa-times"></i>
+                </button>
             </td>
           </tr>
         </tbody>

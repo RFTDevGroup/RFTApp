@@ -96,7 +96,7 @@ export class TransportCreateComponent implements OnInit {
             .subscribe(response => {
                 if (response) {
                     console.log('Sikeres hozzáadás!');
-                    this._router.navigate(['transport']);
+                    this._router.navigate(['transports']);
                 }
             }, error => {console.log(error)})
 
