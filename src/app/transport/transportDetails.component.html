@@ -88,14 +88,21 @@
                     </tr>
                     <tr>
                         <td class="column-header">Licit összege: </td>
+                        <td>{{bidValue}}</td>
                         <td>
-                            <input type="text" [(ngModel)]="bidValue">
+                            <input type="text" [(ngModel)]="newBidValue">
                         </td>
+                    </tr>
+                    <tr>
+                        <td class="column-header">Licit tulajdonos</td>
+                        <td>{{lowestBidder}}</td>
                     </tr>
                 </tbody>
             </table>
             <div *ngIf="bidInvalid" class="alert alert-danger">{{errorMessage}}</div>
+            <span *ngIf="isOwnTransport(transport?.owner) && !dateIsOverdue()">
             <button class="btn btn-primary btn-submit" (click)="makeBid()">Licitálok</button>
+            </span>
             <button class="btn btn-primary btn-cancel" (click)="return()">Vissza</button>
         </div>
     </div>

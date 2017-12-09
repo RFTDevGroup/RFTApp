@@ -60,6 +60,7 @@ export class UsersService {
     }
 
     createUser(newUser) {    
+        console.log(newUser);
         let headers = new Headers({
             'Content-Type': 'application/json'
         });
@@ -72,7 +73,7 @@ export class UsersService {
             .catch(this.handleError);
     }
 
-    updateUser(id, user) {
+    updateSelf(user) {
         let headers = new Headers({
             'Authorization': 'Basic ' + btoa(this._authService.getUsername() + ':' + this._authService.getPassword())
         });
@@ -80,7 +81,21 @@ export class UsersService {
                 headers: headers
         });
 
-        return this._http.put(environment.baseAddress + '/api/user/' + user.id + '/update', user, options)
+        return this._http.put(environment.baseAddress + '/api/user/update', user, options)
+            .map((resp: Response) => { return resp.json() })
+            .catch(this.handleError);
+    }
+
+    updateUser(id, user) {
+        console.log(user);
+        let headers = new Headers({
+            'Authorization': 'Basic ' + btoa(this._authService.getUsername() + ':' + this._authService.getPassword())
+        });
+        let options = new RequestOptions({
+                headers: headers
+        });
+
+        return this._http.put(environment.baseAddress + '/api/user/' + id + '/update', user, options)
             .map((resp: Response) => { return resp.json() })
             .catch(this.handleError);
     }
@@ -94,7 +109,7 @@ export class UsersService {
         });
 
         return this._http.delete(environment.baseAddress + '/api/user/' + id, options)
-            .map((resp: Response) => { return resp.json() })
+            .map((resp: Response) => { return resp })
             .catch(this.handleError);
     }
 

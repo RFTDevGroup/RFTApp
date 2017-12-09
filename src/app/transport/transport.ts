@@ -7,6 +7,7 @@ export interface ITransport {
     daysRemaining: string;
     owner: string;
     currentPrice: number;
+    lowestBidder: string;
 }
 
 export interface ITransportResponse {
@@ -74,4 +75,8 @@ export interface ITransportViewModel {
     timeOfUnload: IDate,
     bids: Array<any>,
     currentPrice: number
+}
+
+export interface IBidValue {
+    amount: number;
 }

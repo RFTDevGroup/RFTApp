@@ -1,0 +1,25 @@
+.table-rows {
+    opacity: 0.6;
+    border: 1px solid grey;
+    margin-bottom: 20px;
+}
+
+tr {
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+}
+
+.table-unread {
+    font-weight: bold;
+}
+
+.btn-primary {
+    margin-bottom: 10px;
+}
+
+.panel-heading {
+    font-size: 18pt;
+}

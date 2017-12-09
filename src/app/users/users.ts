@@ -4,7 +4,7 @@ export interface IUsers {
     firstName: string;
     lastName: string;
     email: string;
-    address: string;
+    address: IAddress;
     roles: string[];
 }
 

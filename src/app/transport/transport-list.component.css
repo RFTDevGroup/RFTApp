@@ -6,3 +6,7 @@ tr {
 .buttons {
     width: 15px;
 }
+
+.table {
+    text-align: left;
+}
