@@ -90,8 +90,6 @@ export class TransportService {
     }
 
     bidOnTransport(id: number, value: IBidValue) {
-        console.log(id);
-        console.log(value);
         let headers =  new Headers({
             'Authorization': 'Basic ' + btoa(this._authService.getUsername() + ':' + this._authService.getPassword())
         });

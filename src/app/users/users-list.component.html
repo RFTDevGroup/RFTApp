@@ -25,13 +25,13 @@
         </thead>
         <tbody>
           <tr *ngFor='let user of filteredUsers'>
-            <td>{{user.userName}}</td>
-            <td>{{user.firstName}}</td>
-            <td>{{user.lastName}}</td>
-            <td>{{user.email}}</td>
+            <td>{{user?.userName}}</td>
+            <td>{{user?.firstName}}</td>
+            <td>{{user?.lastName}}</td>
+            <td>{{user?.email}}</td>
             <td>
-              {{user.address.country}}, {{user.address.zipcode}} {{user.address.city}},
-              {{user.address.street}} {{user.address.houseNo}}</td>
+              {{user?.address?.country}}, {{user?.address?.zipcode}} {{user?.address?.city}},
+              {{user?.address?.street}} {{user?.address?.houseNo}}</td>
             <td class="buttons">
                 <button class="btn btn-primary" (click)="goToUser(user.id)">
                     <i class="fa fa-pencil"></i>

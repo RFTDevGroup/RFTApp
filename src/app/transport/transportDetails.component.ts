@@ -39,6 +39,7 @@ export class TransportDetailsComponent {
                 } else {
                     this.lowestBidder = this.transport.owner.userName;
                 }
+                this.dateIsOverdue();
                 
             }
         }, error => { this.errorMessage = error});
@@ -46,6 +47,27 @@ export class TransportDetailsComponent {
 
     getLowestBidder() {
         return this.transport.bids[this.transport.bids.length - 1];
+    }
+
+    dateIsOverdue() {
+        if (this.transport) {
+            var currentDate = new Date();
+            var currentYear = currentDate.getFullYear();
+            var currentMonth = currentDate.getMonth() + 1;
+            var currentDay = currentDate.getDate();
+            var currentDateTime = currentYear + '-' + currentMonth + '-' + currentDay
+            var transportDateTime = 
+                this.transport.timeOfLoad.year + '-' + this.transport.timeOfLoad.monthValue + '-' + this.transport.timeOfLoad.dayOfMonth;
+            var diff = (Date.parse(currentDateTime) - Date.parse(transportDateTime)) / (1000*60*60*24);
+            if (diff < 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return true;
+        
+
     }
 
     return() {

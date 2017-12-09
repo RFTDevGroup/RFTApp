@@ -60,6 +60,7 @@ export class UsersService {
     }
 
     createUser(newUser) {    
+        console.log(newUser);
         let headers = new Headers({
             'Content-Type': 'application/json'
         });

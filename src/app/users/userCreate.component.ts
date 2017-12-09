@@ -9,7 +9,8 @@ import { IRegisterModel } from './register.model';
 })
 export class UserCreateComponent implements OnInit {
 
-    registerInvalid: string;
+    registerInvalid = false;
+    errorMessage: string;
 
     constructor(
         private _router: Router,
@@ -25,11 +26,18 @@ export class UserCreateComponent implements OnInit {
     }
 
     registerUser(formValues) {
+
+        if (formValues.userName.length <= 4) {
+            this.errorMessage = 'A felhasználónév legalább 4 karakter hosszú legyen!'
+            this.registerInvalid = true;
+            return 0;
+        }
         
         this._userService.createUser(formValues).subscribe(
             resp => {
                 if(resp.status == 'VALIDATION_ERROR') {
-                    this.registerInvalid = "Sikertelen regisztráció!"
+                    this.errorMessage = 'Sikertelen regisztráció!'
+                    this.registerInvalid = true;
                 } else {
                     this._router.navigate(['login']);
                 }

@@ -100,7 +100,7 @@
                 </tbody>
             </table>
             <div *ngIf="bidInvalid" class="alert alert-danger">{{errorMessage}}</div>
-            <span *ngIf="isOwnTransport(transport?.owner)">
+            <span *ngIf="isOwnTransport(transport?.owner) && !dateIsOverdue()">
             <button class="btn btn-primary btn-submit" (click)="makeBid()">Licitálok</button>
             </span>
             <button class="btn btn-primary btn-cancel" (click)="return()">Vissza</button>
