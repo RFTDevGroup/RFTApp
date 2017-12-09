@@ -39,11 +39,19 @@ export class TransportListComponent implements OnInit{
     }
 
     deleteTransport(id: number) {
+        if (this.isAdmin()) {
+            this._transportService.deleteTransportByAdmin(id)
+            .subscribe(response => {
+                this.listTransports();
+            },
+            error => { console.log('Sikertelen törlés')});
+        } else {
         this._transportService.deleteTransport(id)
             .subscribe(response => {
                 this.listTransports();
             },
             error => { console.log('Sikertelen törlés')});
+        }
     }
 
     isOwnTransport(owner) {
@@ -51,6 +59,16 @@ export class TransportListComponent implements OnInit{
             return true;
         } else {
             return false;
+        }
+    }
+
+    isAdmin() {
+        return this._authService.isAdmin();
+    }
+
+    isCurrentHighestBidder(name) {
+        if (name == this._authService.getUsername()) {
+            return 'green';
         }
     }
 

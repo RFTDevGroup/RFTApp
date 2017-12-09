@@ -7,6 +7,7 @@ export interface ITransport {
     daysRemaining: string;
     owner: string;
     currentPrice: number;
+    lowestBidder: string;
 }
 
 export interface ITransportResponse {

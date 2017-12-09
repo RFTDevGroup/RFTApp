@@ -1,3 +1,28 @@
-<div>
-    Message component here!
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Üzenetek
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <button class="btn btn-primary" (click)="toggleButton()">
+                {{buttonText}}
+            </button>
+            <table class="table" *ngIf="messages && messages.length">
+                <thead>
+                    
+                </thead>
+                <tbody>
+                    <div *ngFor="let message of messages" class="table-rows">
+                        <tr  [style.font-weight]="isUnread(message.read)">
+                            <td>Küldő: {{message.sender}}</td>
+                            <td>Tárgy: {{message.topic}}</td>
+                        </tr>
+                        <tr  [style.font-weight]="isUnread(message.read)">
+                            <td>{{message.body}}</td>
+                        </tr>
+                    </div>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

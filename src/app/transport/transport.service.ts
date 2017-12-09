@@ -76,6 +76,19 @@ export class TransportService {
             .catch(this.handleError);
     }
 
+    deleteTransportByAdmin(id: number) {
+        let headers =  new Headers({
+            'Authorization': 'Basic ' + btoa(this._authService.getUsername() + ':' + this._authService.getPassword())
+        });
+        let options = new RequestOptions({
+            headers: headers
+        });
+
+        return this._http.delete(environment.baseAddress + '/api/transport/' + id + '/admin', options)
+            .map((response: Response) => { return response })
+            .catch(this.handleError);
+    }
+
     bidOnTransport(id: number, value: IBidValue) {
         console.log(id);
         console.log(value);

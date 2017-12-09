@@ -16,7 +16,7 @@
                         <th>Neve</th>
                         <th>Indulás helye</th>
                         <th>Érkezés helye</th>
-                        <th>Indulásig hátralévő</th>
+                        <th>Indulásig hátralévő (nap)</th>
                         <th>Tulajdonos</th>
                         <th>Jelenlegi ár</th>
                         <th></th>
@@ -25,18 +25,18 @@
                 </thead>
                 <tbody>
                     <tr *ngFor='let transport of transports'>
-                        <td>{{transport.cargoName}}</td>
-                        <td>{{transport.cityFrom}}</td>
-                        <td>{{transport.cityTo}}</td>
-                        <td>{{transport.daysRemaining}}</td>
-                        <td>{{transport.owner}}</td>
-                        <td>{{transport.currentPrice}}</td>
-                        <td class="buttons" *ngIf="!isOwnTransport(transport.owner)">
+                        <td [style.color]="isCurrentHighestBidder(transport.lowestBidder)">{{transport.cargoName}}</td>
+                        <td [style.color]="isCurrentHighestBidder(transport.lowestBidder)">{{transport.cityFrom}}</td>
+                        <td [style.color]="isCurrentHighestBidder(transport.lowestBidder)">{{transport.cityTo}}</td>
+                        <td [style.color]="isCurrentHighestBidder(transport.lowestBidder)">{{transport.daysRemaining}}</td>
+                        <td [style.color]="isCurrentHighestBidder(transport.lowestBidder)">{{transport.owner}}</td>
+                        <td [style.color]="isCurrentHighestBidder(transport.lowestBidder)">{{transport.currentPrice}}</td>
+                        <td class="buttons">
                             <button class="btn btn-primary" (click)="transportDetails(transport.id)">
                                 <i class="fa fa-pencil"></i>
                             </button>
                         </td>
-                        <td class="buttons" *ngIf="isOwnTransport(transport.owner)">
+                        <td class="buttons" *ngIf="isOwnTransport(transport.owner) || isAdmin()">
                             <button class="btn btn-primary" (click)="deleteTransport(transport.id)">
                                 <i class="fa fa-times"></i>
                             </button>

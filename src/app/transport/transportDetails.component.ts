@@ -34,7 +34,12 @@ export class TransportDetailsComponent {
             if (resp) {
                 this.transport = resp;
                 this.bidValue = this.transport.currentPrice;
-                this.lowestBidder = this.getLowestBidder().bidder.userName;
+                if(this.getLowestBidder()){
+                    this.lowestBidder = this.getLowestBidder().bidder.userName;
+                } else {
+                    this.lowestBidder = this.transport.owner.userName;
+                }
+                
             }
         }, error => { this.errorMessage = error});
     }
@@ -45,6 +50,14 @@ export class TransportDetailsComponent {
 
     return() {
         this._router.navigate(['transports']);
+    }
+
+    isOwnTransport(owner) {
+        if (owner && owner.userName == this._authService.getUsername()) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     makeBid() {
@@ -58,7 +71,7 @@ export class TransportDetailsComponent {
             this.bidInvalid = true;
             return 0;
         } 
-        if (this.getLowestBidder().bidder.userName == this._authService.getUsername())
+        if (this.getLowestBidder() && this.getLowestBidder().bidder.userName == this._authService.getUsername())
         {
             this.errorMessage = "Már Öné a legkisebb licit!"
             this.bidInvalid = true;
