@@ -58,7 +58,7 @@ export class TransportDetailsComponent {
             var currentDateTime = currentYear + '-' + currentMonth + '-' + currentDay
             var transportDateTime = 
                 this.transport.timeOfLoad.year + '-' + this.transport.timeOfLoad.monthValue + '-' + this.transport.timeOfLoad.dayOfMonth;
-            var diff = (Date.parse(currentDateTime) - Date.parse(transportDateTime)) / (1000*60*60*24);
+            var diff = (Date.parse(transportDateTime) - Date.parse(currentDateTime)) / (1000*60*60*24);
             if (diff < 0) {
                 return true;
             } else {
